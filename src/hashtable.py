@@ -51,7 +51,13 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        index = self._hash_mod(key)
+
+        if self.storage[index] is not None:
+            print('Error: index collision')
+            return
+
+        self.storage[index] = value
 
 
 
@@ -63,8 +69,13 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        index = self._hash_mod(key)
 
+        if self.storage[index] is None:
+            print('Error: key not found')
+            return
+
+        self.storage[index] = None
 
     def retrieve(self, key):
         '''
@@ -74,7 +85,9 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        index = self._hash_mod(key)
+
+        return self.storage[index]
 
 
     def resize(self):
@@ -84,8 +97,12 @@ class HashTable:
 
         Fill this in.
         '''
+        # self.capacity *= 2
+        #
+        # new_storage = [None] * self.capacity
+        #
+        # for
         pass
-
 
 
 if __name__ == "__main__":
