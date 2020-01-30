@@ -51,7 +51,17 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        index = self._hash_mod(key)
+
+        bucket = self.storage[index]
+
+        if bucket is None:
+            node = LinkedPair(key, value)
+            self.storage[index]
+        else:
+            pass
+
+        self.storage[index] = LinkedPair(key, value)
 
 
 
@@ -63,7 +73,14 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        index = self._hash_mod(key)
+
+        # check if key exists
+        if self.storage[index] is None:
+            print('Error: key not found')
+            return
+
+        self.storage[index] = None
 
 
     def retrieve(self, key):
