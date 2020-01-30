@@ -116,7 +116,7 @@ class HashTable:
         temp_storage = [None] * self.capacity
         # copy everything to new storage
         for index in range(self.capacity // 2):
-            temp_storage[index] = self.storage[index]
+            temp_storage[index] = self.storage[index] # need to hash 
 
         self.storage = temp_storage
 
