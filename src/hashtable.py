@@ -91,7 +91,16 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        index = self._hash_mod(key)
+
+        bucket = self.storage[index]
+
+        # iterate through the linked list
+        # at each node check if the key matches
+        # if match is found, return the value
+        # else, return None
+
+        return value
 
 
     def resize(self):
@@ -101,9 +110,15 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        self.capacity *= 2
 
+        # create new storage that is twice the size of original
+        temp_storage = [None] * self.capacity
+        # copy everything to new storage
+        for index in range(self.capacity // 2):
+            temp_storage[index] = self.storage[index]
 
+        self.storage = temp_storage
 
 if __name__ == "__main__":
     ht = HashTable(2)
